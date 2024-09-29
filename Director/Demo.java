@@ -30,13 +30,26 @@ public class Demo {
         */
         Car car = builder.getResult();
         System.out.println("Car built:\n" + car.getCarType());
-
-
         CarManualBuilder manualBuilder = new CarManualBuilder();
-
         // El director puede conocer varias recetas de construcción.
         director.constructCityCar(manualBuilder);
         Manual carManual = manualBuilder.getResult();
-        System.out.println("\nCar manual built:\n" + carManual.print());  
+        System.out.println("\nCar manual built:\n" + carManual.print());
+        
+        CarBuilder builder2 = new CarBuilder();
+        director.constructSportsCar(builder2);
+        Car car2 = builder2.getResult();
+        System.out.println("Car built:\n" + car2.getCarType());
+        director.constructSportsCar(manualBuilder);
+        Manual carManual2 = manualBuilder.getResult();
+        System.out.println("\nCar manual built:\n" + carManual2.print());
+        
+        CarBuilder builder3 = new CarBuilder();
+        director.constructSUV(builder3);
+        Car car3 = builder3.getResult();
+        System.out.println("Car built:\n" + car3.getCarType());
+        director.constructSUV(manualBuilder);
+        Manual carManual3 = manualBuilder.getResult();
+        System.out.println("\nCar manual built:\n" + carManual3.print());
     }
 }
